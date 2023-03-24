@@ -10,10 +10,10 @@ import Foundation
 struct ProductModel: Codable {
     let id: Int
     let title: String
-    let price: Double
+    let price: Float
     let description: String
     let category: String
     let image: String
-    let rating: [RatingModel]
+    let rating:  RatingModel
 }
 

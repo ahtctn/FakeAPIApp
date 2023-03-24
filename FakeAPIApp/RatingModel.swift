@@ -8,6 +8,6 @@
 import Foundation
 
 struct RatingModel: Codable {
-    let rate: Double
+    let rate: Float
     let count: Int
 }
