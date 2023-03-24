@@ -120,6 +120,7 @@
                 <outlet property="priceLabel" destination="dxn-Dy-fxY" id="J6Y-SZ-3Gl"/>
                 <outlet property="productBackgroundView" destination="bU9-fW-0zL" id="cMm-ls-Bio"/>
                 <outlet property="productCategoryLabel" destination="mvW-jo-xSM" id="C4v-yO-njT"/>
+                <outlet property="productImageView" destination="34K-xY-tpT" id="Rsv-rp-4ZS"/>
                 <outlet property="productTitleLabel" destination="y3i-6G-4Ov" id="xtm-bl-nEh"/>
                 <outlet property="rateButton" destination="SPi-hY-oAB" id="QD5-Y9-04S"/>
             </connections>

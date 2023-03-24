@@ -38,7 +38,7 @@ final class APIManager {
             let jsonDecoder = JSONDecoder()
         
             do {
-                let products = try JSONDecoder().decode([ProductModel].self, from: data)
+                let products = try jsonDecoder.decode([ProductModel].self, from: data)
                 completion(.success(products))
             } catch let DecodingError.dataCorrupted(context) {
                 print(context)

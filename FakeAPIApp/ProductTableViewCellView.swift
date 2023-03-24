@@ -9,6 +9,7 @@ import UIKit
 
 class ProductTableViewCellView: UITableViewCell {
     
+    @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productBackgroundView: UIView!
     @IBOutlet weak var productTitleLabel: UILabel!
     @IBOutlet weak var productCategoryLabel: UILabel!
@@ -40,6 +41,7 @@ class ProductTableViewCellView: UITableViewCell {
         priceLabel.text = "$\(product.price)"
         rateButton.setTitle("\(product.rating.rate)", for: .normal)
         descriptionLabel.text = product.description
+        productImageView.setImage(with: product.image )
     }
     
 }

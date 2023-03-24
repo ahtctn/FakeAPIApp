@@ -11,4 +11,8 @@ enum Constants {
     enum API {
         static let productURL = "https://fakestoreapi.com/products"
     }
+    
+    enum CellID {
+        static let id = "ProductTableViewCellView"
+    }
 }

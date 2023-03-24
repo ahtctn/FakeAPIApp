@@ -9,7 +9,7 @@ import UIKit
 
 class ProductListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var productTableView: UITableView!
     
     private let viewModel = ProductViewModel()
     
@@ -21,7 +21,7 @@ class ProductListViewController: UIViewController {
 
 extension ProductListViewController {
     func configuration() {
-        tableView.register(UINib(nibName: "ProductTableViewCellView ", bundle: nil), forCellReuseIdentifier: "ProductTableViewCellView")
+        productTableView.register(UINib(nibName: "ProductTableViewCellView", bundle: nil), forCellReuseIdentifier: Constants.CellID.id)
         initViewModel()
         observeEvent()
     }
@@ -39,7 +39,10 @@ extension ProductListViewController {
             case .stopLoading: break
             case .dataLoaded:
                 print(self.viewModel.products)
-                
+                DispatchQueue.main.async {
+                    self.productTableView.reloadData()
+                }
+                 
             case .error(let error):
                 print(error as Any)
             }
@@ -48,15 +51,16 @@ extension ProductListViewController {
     }
 }
 
-extension ProductListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProductListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.products.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCellView") as? ProductTableViewCellView else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CellID.id) as? ProductTableViewCellView else { return UITableViewCell()}
         let products = viewModel.products[indexPath.row]
         cell.product = products
+        print(viewModel.products.count)
         return cell
     }
     
